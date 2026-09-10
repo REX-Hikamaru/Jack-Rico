@@ -1,0 +1,1101 @@
+/* =====================================================
+   Jack & Rico | style.css
+   - Zen Maru Gothic / Yomogi フォント採用（見やすく）
+   - キャラクター吹き出し追加
+   - メール問い合わせ削除
+   - 電話番号下に注意事項
+===================================================== */
+:root {
+  --pink: #F4A7B9;
+  --pink-deep: #E07A97;
+  --pink-light: #FDE8EF;
+  --pink-pale: #FFF5F8;
+  --brown: #8B5E52;
+  --brown-light: #C4956A;
+  --cream: #FFF9F5;
+  --green: #A8D5A2;
+  --text: #5A3D35;
+  --shadow: 0 4px 20px rgba(244,167,185,0.18);
+  --radius: 16px;
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Zen Maru Gothic', 'Noto Sans JP', sans-serif;
+  background: var(--cream);
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  background: rgba(255,255,255,0.96);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  padding: 0 24px;
+  display: flex; align-items: center; justify-content: space-between;
+  height: 62px;
+  box-shadow: 0 2px 20px rgba(244,167,185,0.22);
+  transition: box-shadow 0.3s;
+}
+.navbar.scrolled { box-shadow: 0 4px 30px rgba(244,167,185,0.38); }
+
+/* ロゴフォント：Zen Maru Gothic で見やすく */
+.nav-logo {
+  font-family: 'Zen Maru Gothic', 'Yomogi', cursive;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--pink-deep);
+  text-decoration: none;
+  flex-shrink: 0;
+  letter-spacing: 0.05em;
+}
+.nav-logo .amp { color: var(--brown-light); }
+
+.nav-links { display: flex; gap: 6px; list-style: none; }
+.nav-links .nav-link {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-width: 112px; min-height: 38px;
+  text-decoration: none; color: var(--brown);
+  font-size: 0.84rem; font-weight: 700;
+  padding: 8px 18px; border: 1px solid var(--pink-light);
+  border-radius: 12px; transition: all 0.3s;
+  background: white;
+}
+.nav-links .nav-link:hover,
+.nav-links .nav-link.active { background: var(--pink); color: white; }
+
+/* 電話番号＋注意事項 */
+.nav-tel {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  font-size: 0.82rem;
+  color: var(--pink-deep);
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: opacity 0.2s;
+  line-height: 1.3;
+}
+.nav-tel:hover { opacity: 0.75; }
+.nav-tel-note {
+  font-size: 0.6rem;
+  font-weight: 400;
+  color: var(--brown-light);
+  background: var(--pink-pale);
+  padding: 1px 6px;
+  border-radius: 8px;
+  margin-top: 2px;
+}
+
+/* インラインスタイル用クラス */
+.mobile-tel-note {
+  display: block;
+  font-size: 0.72rem;
+  opacity: 0.75;
+  margin-top: 2px;
+}
+
+/* ハンバーガー */
+.hamburger {
+  display: none; flex-direction: column; gap: 5px;
+  background: none; border: none; cursor: pointer; padding: 6px;
+  border-radius: 8px; transition: background 0.2s;
+}
+.hamburger:hover { background: var(--pink-pale); }
+.ham-line {
+  display: block; width: 24px; height: 2px;
+  background: var(--brown); border-radius: 2px; transition: all 0.3s;
+}
+.hamburger.open .ham-line:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.open .ham-line:nth-child(2) { opacity: 0; }
+.hamburger.open .ham-line:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* モバイルメニュー */
+.mobile-menu {
+  display: none; position: fixed; top: 62px; left: 0; right: 0;
+  background: white; z-index: 190;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+  transform: translateY(-10px); opacity: 0;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  pointer-events: none;
+}
+.mobile-menu.open {
+  display: block; transform: translateY(0); opacity: 1; pointer-events: auto;
+}
+.mobile-menu ul { list-style: none; }
+.mobile-link {
+  display: block; padding: 15px 28px;
+  text-decoration: none; color: var(--brown);
+  font-size: 0.95rem; font-weight: 500;
+  border-bottom: 1px solid var(--pink-light);
+  transition: background 0.2s, padding-left 0.2s;
+}
+.mobile-link:hover { background: var(--pink-pale); padding-left: 36px; }
+.mobile-tel { color: var(--pink-deep); font-weight: 700; }
+
+/* ===== 注意事項バナー ===== */
+.notice-banner {
+  background: linear-gradient(135deg, #FFF3CD, #FFE8A3);
+  border-bottom: 2px solid #F0C040;
+  margin-top: 62px;
+}
+.notice-inner {
+  max-width: 900px; margin: 0 auto;
+  padding: 12px 20px;
+  display: flex; align-items: flex-start; gap: 10px;
+  font-size: 0.84rem; color: #7A5C00; line-height: 1.6;
+}
+.notice-inner > span { font-size: 1.1rem; flex-shrink: 0; margin-top: 1px; }
+.notice-icon { font-size: 1.1rem; flex-shrink: 0; }
+
+/* ===== HERO ===== */
+.hero {
+  position: relative; min-height: 88vh;
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden; background: #1a0a10;
+}
+.hero-kanban-wrap {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+}
+.hero-kanban {
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: center;
+  opacity: 0.52; transition: opacity 0.5s ease;
+}
+.hero-overlay {
+  position: relative; z-index: 2;
+  text-align: center; padding: 40px 20px;
+}
+.hero-content { animation: fadeUp 1s ease both; }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.hero-sub {
+  font-size: 0.95rem; color: rgba(255,255,255,0.85);
+  letter-spacing: 0.2em; margin-bottom: 12px;
+}
+
+/* ヒーロータイトル：Zen Maru Gothic で親しみやすく */
+.hero-title {
+  font-family: 'Zen Maru Gothic', 'Yomogi', cursive;
+  font-size: clamp(3rem, 9vw, 5.5rem); color: white;
+  font-weight: 700;
+  text-shadow: 0 4px 30px rgba(0,0,0,0.5);
+  margin-bottom: 18px; line-height: 1.15;
+  letter-spacing: 0.05em;
+}
+.hero-amp { color: var(--pink); }
+
+.hero-desc {
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  color: rgba(255,255,255,0.88);
+  margin-bottom: 36px; line-height: 1.8;
+}
+.hero-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+/* スクロールヒント */
+.scroll-hint {
+  position: absolute; bottom: 28px; left: 50%;
+  transform: translateX(-50%); z-index: 3;
+  display: flex; flex-direction: column; align-items: center; gap: 4px;
+  color: rgba(255,255,255,0.6); font-size: 0.7rem;
+  animation: bounce 2s infinite;
+}
+.scroll-arrow { font-size: 1.4rem; }
+@keyframes bounce {
+  0%,100% { transform: translateX(-50%) translateY(0); }
+  50%      { transform: translateX(-50%) translateY(8px); }
+}
+
+/* ===== BUTTONS ===== */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  gap: 6px; padding: 14px 34px; border-radius: 50px;
+  font-size: 0.92rem; font-weight: 700; text-decoration: none;
+  transition: transform 0.25s, box-shadow 0.25s; border: 2px solid transparent;
+  cursor: pointer; font-family: 'Zen Maru Gothic', sans-serif;
+}
+.btn:focus-visible { outline: 3px solid var(--pink-deep); outline-offset: 3px; }
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--pink), var(--pink-deep));
+  color: white; box-shadow: 0 6px 20px rgba(224,122,151,0.4);
+}
+.btn-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 28px rgba(224,122,151,0.5); }
+.btn-primary:active { transform: translateY(0); }
+
+/* 大きな電話ボタン */
+.btn-tel-large {
+  display: flex; flex-direction: column; align-items: center;
+  padding: 18px 40px; gap: 4px;
+}
+.tel-icon { font-size: 1.4rem; }
+.tel-num { font-size: 1.3rem; font-weight: 700; letter-spacing: 0.05em; }
+.tel-label { font-size: 0.72rem; font-weight: 400; opacity: 0.85; }
+
+.btn-outline {
+  background: transparent; color: white;
+  border-color: rgba(255,255,255,0.7);
+}
+.btn-outline:hover { background: rgba(255,255,255,0.15); transform: translateY(-3px); }
+
+.btn-sm {
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: 10px 22px; font-size: 0.82rem;
+  background: linear-gradient(135deg, var(--pink), var(--pink-deep));
+  color: white; border-radius: 50px; font-weight: 700;
+  text-decoration: none; transition: transform 0.25s, box-shadow 0.25s;
+  font-family: 'Zen Maru Gothic', sans-serif;
+}
+.btn-sm:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(224,122,151,0.35); }
+.btn-sm:focus-visible { outline: 3px solid var(--pink-deep); outline-offset: 3px; }
+
+.btn-white {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: white; color: var(--pink-deep);
+  padding: 12px 28px; border-radius: 30px;
+  font-weight: 700; font-size: 0.9rem; text-decoration: none;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.15); transition: transform 0.2s;
+  font-family: 'Zen Maru Gothic', sans-serif;
+}
+.btn-white:hover { transform: translateY(-3px); }
+
+/* ===== CONTAINER & SECTION ===== */
+.container { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+
+.section-header { text-align: center; margin-bottom: 40px; }
+.eyebrow {
+  display: inline-block; font-size: 0.72rem; font-weight: 700;
+  letter-spacing: 0.2em; color: var(--pink-deep); margin-bottom: 10px;
+}
+.section-title {
+  font-family: 'Zen Maru Gothic', cursive;
+  font-size: clamp(1.4rem,4vw,2rem); font-weight: 700; color: var(--brown); margin-bottom: 8px;
+}
+.section-sub { font-size: 0.82rem; color: var(--brown-light); }
+
+/* ===== フェードインアニメーション ===== */
+.fade-in {
+  opacity: 0; transform: translateY(24px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+
+/* ===== キャラクター吹き出し ===== */
+.chara-guide {
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+  padding: 20px 24px;
+  position: relative;
+}
+
+/* ホームページ用 */
+.chara-guide--home {
+  background: var(--pink-pale);
+  justify-content: center;
+  padding: 24px 20px 0;
+}
+
+/* 料金ページ上部 */
+.chara-guide--menu-top {
+  background: linear-gradient(135deg, #fff8fb, #fde8ef);
+  justify-content: flex-start;
+  border-bottom: 1px solid var(--pink-light);
+}
+
+/* タブ内 */
+.chara-guide--tab {
+  justify-content: center;
+  margin: 24px 0 0;
+  padding: 16px 20px;
+  background: var(--pink-pale);
+  border-radius: var(--radius);
+}
+
+/* 料金セクション */
+.chara-guide--price {
+  justify-content: flex-end;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 16px 20px 0;
+}
+
+/* 店舗情報 */
+.chara-guide--info-top {
+  justify-content: flex-start;
+  margin-bottom: 20px;
+}
+.chara-guide--info-mid {
+  justify-content: flex-end;
+  margin: 8px 0 24px;
+}
+.chara-guide--contact {
+  justify-content: flex-start;
+  margin-bottom: 16px;
+}
+
+/* キャラクター画像サイズ */
+.chara-img {
+  object-fit: contain;
+  flex-shrink: 0;
+  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.12));
+}
+.chara-img--home { width: 320px; height: 320px; max-width: 98vw; max-height: 60vh; }
+.chara-img--menu { width: 260px; height: 260px; max-width: 98vw; max-height: 60vh; }
+.chara-img--tab  { width: 260px; height: 260px; max-width: 98vw; max-height: 60vh; }
+.chara-img--price { width: 280px; height: 280px; max-width: 98vw; max-height: 60vh; }
+.chara-img--info  { width: 280px; height: 280px; max-width: 98vw; max-height: 60vh; }
+.chara-img--info-sm { width: 220px; height: 220px; max-width: 98vw; max-height: 60vh; }
+.chara-img--contact { width: 220px; height: 220px; max-width: 98vw; max-height: 60vh; }
+
+/* 吹き出し共通 */
+.chara-bubble {
+  background: white;
+  border: 2px solid var(--pink-light);
+  border-radius: 18px;
+  padding: 12px 16px;
+  font-size: 0.82rem;
+  line-height: 1.7;
+  color: var(--text);
+  position: relative;
+  box-shadow: 0 3px 12px rgba(244,167,185,0.2);
+  max-width: 260px;
+}
+
+/* 左向き（キャラ右側に吹き出し） */
+.bubble-tail-left::before {
+  content: '';
+  position: absolute;
+  left: -12px; top: 50%;
+  transform: translateY(-50%);
+  border: 6px solid transparent;
+  border-right-color: var(--pink-light);
+}
+.bubble-tail-left::after {
+  content: '';
+  position: absolute;
+  left: -9px; top: 50%;
+  transform: translateY(-50%);
+  border: 5px solid transparent;
+  border-right-color: white;
+}
+
+/* 右向き（キャラ左側に吹き出し） */
+.bubble-tail-right::before {
+  content: '';
+  position: absolute;
+  right: -12px; top: 50%;
+  transform: translateY(-50%);
+  border: 6px solid transparent;
+  border-left-color: var(--pink-light);
+}
+.bubble-tail-right::after {
+  content: '';
+  position: absolute;
+  right: -9px; top: 50%;
+  transform: translateY(-50%);
+  border: 5px solid transparent;
+  border-left-color: white;
+}
+
+/* ===== FEATURES ===== */
+.features { padding: 80px 0; background: white; }
+.features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap: 24px; }
+.feature-card {
+  background: var(--pink-pale); border-radius: var(--radius);
+  padding: 32px 24px; text-align: center;
+  border: 1px solid var(--pink-light);
+  transition: transform 0.3s, box-shadow 0.3s, opacity 0.65s ease;
+}
+.feature-card:hover { transform: translateY(-8px); box-shadow: var(--shadow); }
+.feature-icon { font-size: 2.5rem; margin-bottom: 14px; }
+.feature-card h3 {
+  font-family: 'Zen Maru Gothic', sans-serif;
+  font-size: 1rem; font-weight: 700; color: var(--brown); margin-bottom: 10px;
+}
+.feature-card p { font-size: 0.82rem; color: var(--brown-light); line-height: 1.7; }
+
+/* ===== TARGET ===== */
+.target-section { padding: 60px 0; background: linear-gradient(135deg, #fff0f5, #fde8ef); }
+.target-card {
+  background: white; border-radius: 20px; padding: 48px 40px;
+  text-align: center; box-shadow: var(--shadow); max-width: 700px; margin: 0 auto;
+}
+.target-icon { font-size: 3rem; display: block; margin-bottom: 16px; }
+.target-card h2 {
+  font-family: 'Zen Maru Gothic', sans-serif;
+  font-size: clamp(1.1rem,3vw,1.5rem); font-weight: 700; color: var(--brown); margin-bottom: 16px;
+}
+.target-desc { font-size: 0.9rem; line-height: 1.9; color: var(--brown-light); margin-bottom: 28px; }
+
+/* ===== PRICE PREVIEW ===== */
+.price-preview { padding: 80px 0 40px; background: var(--cream); }
+.price-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); gap: 24px; }
+.price-card {
+  background: white; border-radius: var(--radius); padding: 32px 24px;
+  text-align: center; box-shadow: var(--shadow); border-top: 4px solid var(--pink);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.price-card:hover { transform: translateY(-6px); box-shadow: 0 12px 32px rgba(244,167,185,0.28); }
+.price-card-icon { font-size: 2.2rem; margin-bottom: 12px; }
+.price-card h3 {
+  font-family: 'Zen Maru Gothic', sans-serif;
+  font-size: 1.05rem; font-weight: 700; color: var(--brown); margin-bottom: 10px;
+}
+.price-card p { font-size: 0.8rem; color: var(--brown-light); line-height: 1.7; margin-bottom: 20px; }
+
+/* ===== CTA ===== */
+.cta-section {
+  background: linear-gradient(135deg, var(--pink-deep), #c05a7a);
+  padding: 70px 20px; text-align: center; color: white;
+}
+.cta-section h2 {
+  font-family: 'Zen Maru Gothic', sans-serif;
+  font-size: clamp(1.4rem,4vw,2rem); font-weight: 700; margin-bottom: 12px;
+}
+.cta-section p { font-size: 0.92rem; opacity: 0.9; margin-bottom: 24px; }
+.cta-note { font-size: 0.78rem; opacity: 0.75; margin-top: 16px; }
+.cta-contacts { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+.cta-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 14px 30px; border-radius: 50px;
+  font-size: 0.9rem; font-weight: 700; text-decoration: none; transition: all 0.3s;
+  font-family: 'Zen Maru Gothic', sans-serif;
+}
+.cta-tel { background: white; color: var(--pink-deep); }
+.cta-tel:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,0.2); }
+.plain-phone {
+  display: inline-block;
+  color: var(--pink-deep);
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-decoration: none;
+  letter-spacing: 0.04em;
+}
+.plain-phone:hover { text-decoration: underline; }
+.plain-phone--dark { color: white; }
+.cta-phone {
+  color: white;
+  font-size: 1.15rem;
+  font-weight: 700;
+  text-decoration: none;
+  letter-spacing: 0.04em;
+}
+.cta-phone:hover { text-decoration: underline; }
+
+/* ===== FOOTER ===== */
+.footer {
+  background: var(--brown); color: rgba(255,255,255,0.85);
+  padding: 40px 20px; text-align: center;
+  font-size: 0.8rem; line-height: 2;
+}
+.footer-logo {
+  font-family: 'Zen Maru Gothic', 'Yomogi', cursive;
+  font-size: 1.8rem; font-weight: 700;
+  color: white; margin-bottom: 8px;
+}
+.footer-amp { color: var(--pink); }
+.footer-copy { margin-top: 16px; opacity: 0.45; font-size: 0.72rem; }
+
+/* ===== BOTTOM NAV ===== */
+.bottom-nav {
+  display: none; position: fixed; bottom: 0; left: 0; right: 0;
+  background: white; box-shadow: 0 -2px 20px rgba(244,167,185,0.3);
+  z-index: 100; padding: 8px 0 12px;
+}
+.bottom-nav ul { display: flex; justify-content: space-around; list-style: none; }
+.bnav-link {
+  display: flex; flex-direction: column; align-items: center;
+  text-decoration: none; color: var(--brown-light);
+  font-size: 0.65rem; font-weight: 500; gap: 3px; transition: color 0.2s;
+}
+.bnav-link:hover, .bnav-link.active { color: var(--pink-deep); }
+.bnav-icon { font-size: 1.4rem; }
+
+/* ============================================
+   PAGE HEADER（menu・info共通）
+============================================ */
+.page-header {
+  background: linear-gradient(135deg, #fff0f5, #ffe0ea);
+  padding: 28px 20px 24px; text-align: center;
+  position: relative; overflow: hidden;
+}
+.page-header::before {
+  content: '🐾🐾🐾🐾🐾';
+  position: absolute; font-size: 3rem; opacity: 0.05;
+  letter-spacing: 28px; top: 16px; left: 0; right: 0; pointer-events: none;
+}
+.page-header h1 {
+  font-family: 'Zen Maru Gothic', sans-serif;
+  font-size: clamp(1.5rem,4vw,2rem); color: var(--pink-deep); font-weight: 700;
+}
+.page-header p { font-size: 0.78rem; color: var(--brown-light); margin-top: 6px; }
+
+/* ============================================
+   MENU.HTML スタイル
+============================================ */
+.tab-bar {
+  display: flex; background: white;
+  box-shadow: 0 2px 12px rgba(244,167,185,0.2);
+  position: sticky; top: 62px; z-index: 50;
+  margin-top: 62px;
+  overflow-x: auto; overflow-y: hidden;
+}
+.tab-bar::-webkit-scrollbar { height: 0; width: 0; display: none; }
+
+.tab-btn {
+  flex: 1; min-width: 110px; padding: 14px 8px;
+  border: none; background: transparent;
+  font-family: 'Zen Maru Gothic', 'Noto Sans JP', sans-serif;
+  font-size: 0.8rem; font-weight: 700; color: var(--brown-light);
+  cursor: pointer; border-bottom: 3px solid transparent;
+  transition: all 0.3s; white-space: nowrap;
+}
+.tab-btn:hover { background: var(--pink-pale); color: var(--pink-deep); }
+.tab-btn.active {
+  color: var(--pink-deep); border-bottom-color: var(--pink-deep);
+  background: var(--pink-pale);
+}
+.tab-btn:focus-visible { outline: 3px solid var(--pink-deep); outline-offset: -3px; }
+
+.menu-content { max-width: 840px; margin: 0 auto; padding: 24px 16px 80px; }
+.tab-panel { display: none; }
+.tab-panel.active { display: block; animation: fadeIn 0.35s ease; }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.menu-notice {
+  background: linear-gradient(135deg, #fff8fb, #fde8ef);
+  border: 1px solid var(--pink-light); border-radius: var(--radius);
+  padding: 16px 20px; display: flex; gap: 12px; align-items: flex-start;
+  font-size: 0.83rem; line-height: 1.7; color: var(--text); margin-bottom: 24px;
+}
+.menu-notice > span { font-size: 1.6rem; flex-shrink: 0; }
+
+.menu-section-title {
+  display: flex; align-items: center; gap: 10px;
+  font-family: 'Zen Maru Gothic', sans-serif;
+  font-size: 1.05rem; font-weight: 700; color: var(--brown);
+  margin: 28px 0 14px; padding-bottom: 8px;
+  border-bottom: 2px dashed var(--pink);
+}
+.menu-section-title .icon { font-size: 1.3rem; }
+
+/* 料金テーブル */
+.price-table {
+  width: 100%; border-collapse: collapse; font-size: 0.82rem;
+  background: white; border-radius: var(--radius); overflow: hidden;
+  box-shadow: var(--shadow); margin-bottom: 20px;
+  table-layout: fixed;
+}
+.price-table th:first-child,
+.price-table td:first-child { width: 56%; }
+.price-table th:not(:first-child),
+.price-table td:not(:first-child) { width: 22%; }
+.price-table th {
+  background: linear-gradient(135deg, var(--pink), var(--pink-deep));
+  color: white; padding: 11px 12px; text-align: center;
+  font-size: 0.78rem; font-weight: 700;
+}
+.price-table th:first-child { text-align: left; }
+.price-table td { padding: 11px 12px; border-bottom: 1px solid #f8e8ef; vertical-align: middle; }
+.price-table td:not(:first-child) { text-align: center; font-weight: 600; color: var(--pink-deep); }
+.price-table tr:last-child td { border-bottom: none; }
+.price-table tr:nth-child(even) td { background: #fff8fb; }
+.price-dash { color: #ccc; font-weight: 700; font-size: 1rem; }
+.inquiry-cell { text-align: center !important; color: var(--pink-deep) !important; font-weight: 700 !important; }
+.travel-fee-note {
+  color: #c7475f;
+  font-size: 0.82rem;
+  font-weight: 700;
+  line-height: 1.8;
+  margin: -6px 0 18px;
+  text-align:left;
+}
+
+/* ケアテーブル */
+.care-table {
+  width: 100%; border-collapse: collapse; font-size: 0.8rem;
+  background: white; border-radius: var(--radius); overflow: hidden;
+  box-shadow: var(--shadow); margin: 0 0 24px;
+  table-layout: fixed;
+}
+.care-table--options td:first-child { width: 65%; }
+.care-table--options td:last-child { width: 35%; }
+.care-table--care td:first-child { width: 58%; }
+.care-table--care td:not(:first-child) { width: 21%; }
+.care-table .tbl-header { background: linear-gradient(135deg, var(--green), #6fbf73); color: white; padding: 10px 14px; font-size: 0.85rem; font-weight: 700; }
+.care-table .tbl-header.orange-head { background: linear-gradient(135deg, #F4A460, #D2691E); }
+.care-table tr td { padding: 11px 14px; border-bottom: 1px solid #f5eeee; vertical-align: middle; line-height: 1.6; }
+.care-table tr:last-child td { border-bottom: none; }
+.care-table tr:nth-child(even) td { background: #fdf8f9; }
+.care-table td.price-col { text-align: center; white-space: nowrap; color: var(--pink-deep); font-weight: 700; font-size: 0.85rem; }
+.care-table th { background: #f9a6c7; color: var(--text); padding: 10px; text-align: center; font-size: 0.8rem; }
+.care-table th:first-child { text-align: left; }
+.care-table .care-header { background: #fff29a; color: var(--text); }
+.care-table .care-size-header { background: #f9a6c7; color: var(--text); }
+.tax-note--lead { color: var(--text); margin: -6px 0 14px; font-weight: 700; }
+
+.document-card {
+  margin: 0 0 24px;
+  background: white;
+  border-radius: var(--radius);
+  padding: 12px;
+  box-shadow: var(--shadow);
+}
+.document-preview {
+  display: block;
+  width: 100%;
+  border: 0;
+  padding: 0;
+  background: #fff8fb;
+  cursor: zoom-in;
+  position: relative;
+}
+.document-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 720px;
+  object-fit: contain;
+}
+.document-zoom {
+  display: block;
+  padding: 9px 8px 2px;
+  color: var(--pink-deep);
+  font-size: 0.75rem;
+  text-align: center;
+}
+.document-card figcaption {
+  color: var(--brown);
+  font-size: 0.8rem;
+  line-height: 1.6;
+  text-align: center;
+  padding-top: 8px;
+}
+.document-subtitle {
+  color: var(--brown);
+  font-family: 'Zen Maru Gothic', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 28px 0 12px;
+  padding-bottom: 8px;
+  border-bottom: 2px dashed var(--pink);
+}
+.document-card--check { margin-bottom: 0; }
+.agreement-card {
+  background: white;
+  border: 1px solid var(--pink-light);
+  border-top: 5px solid var(--pink-deep);
+  border-radius: var(--radius);
+  padding: 22px 24px;
+  margin-bottom: 0;
+  box-shadow: var(--shadow);
+  color: var(--text);
+  font-size: 0.8rem;
+  line-height: 1.8;
+}
+.agreement-lead,
+.agreement-intro { margin-bottom: 16px; }
+.agreement-intro {
+  background: var(--pink-pale);
+  border-radius: 10px;
+  padding: 12px 14px;
+}
+.agreement-section {
+  border-top: 1px solid var(--pink-light);
+  padding: 16px 0 2px;
+}
+.agreement-section h3 {
+  color: var(--pink-deep);
+  font-family: 'Zen Maru Gothic', sans-serif;
+  font-size: 0.92rem;
+  margin-bottom: 6px;
+}
+.agreement-subheading {
+  color: var(--brown);
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.agreement-section p { margin-bottom: 4px; }
+.agreement-section ul {
+  list-style: none;
+  padding-left: 0;
+}
+.agreement-section li {
+  position: relative;
+  padding-left: 1.2em;
+  margin-bottom: 6px;
+}
+.agreement-section li::before {
+  content: '□';
+  position: absolute;
+  left: 0;
+  color: var(--pink-deep);
+  font-weight: 700;
+}
+.agreement-signature {
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 2px dashed var(--pink);
+  color: var(--brown);
+  font-weight: 700;
+  text-align: center;
+}
+.image-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 500;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(45, 24, 30, 0.86);
+}
+.image-modal.is-open { display: flex; }
+.image-modal-image {
+  display: block;
+  max-width: min(96vw, 1100px);
+  max-height: 92vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  background: white;
+}
+.image-modal-close {
+  position: absolute;
+  top: 16px;
+  right: 18px;
+  width: 42px;
+  height: 42px;
+  border: 0;
+  border-radius: 50%;
+  background: white;
+  color: var(--brown);
+  font-size: 1.8rem;
+  line-height: 1;
+  cursor: pointer;
+}
+body.modal-open { overflow: hidden; }
+
+/* 追加料金テーブル */
+.surcharge-table {
+  width: 100%; border-collapse: collapse; font-size: 0.78rem;
+  background: white; border-radius: var(--radius); overflow: hidden;
+  box-shadow: var(--shadow); margin-bottom: 20px;
+}
+.surcharge-header { background: linear-gradient(135deg, #F08080, #CD5C5C); color: white; padding: 10px 14px; font-size: 0.85rem; font-weight: 700; }
+.surcharge-table tr td { padding: 8px 14px; border-bottom: 1px solid #fdeaea; vertical-align: top; line-height: 1.5; }
+.surcharge-table tr:last-child td { border-bottom: none; }
+.surcharge-table tr:nth-child(even) td { background: #fff8f8; }
+.surcharge-table td.surcharge-price { text-align: right; white-space: nowrap; color: #cd5c5c; font-weight: 700; width: 42%; }
+.surcharge-size-row { text-align: right; color: #352420; font-size: 0.75rem; }
+.alert-text { color: #e07a97; font-weight: 700; }
+.menu-cancel-table { margin-bottom: 8px; }
+.menu-cancel-table th:last-child,
+.menu-cancel-table td:last-child { width: 68%; }
+.menu-cancel-note { margin: 8px 0 24px; color: #000000; font-size: 2.1rem; line-height: 1.8; font-weight: 700; }
+
+/* ノートカード */
+.note-card {
+  background: white; border-left: 4px solid var(--pink);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  padding: 14px 16px; font-size: 0.8rem; line-height: 1.8;
+  color: var(--text); margin-bottom: 16px;
+  box-shadow: 0 2px 10px rgba(244,167,185,0.12);
+}
+.note-card.green-note { border-left-color: var(--green); }
+.note-card.note-red { border-left-color: #F08080; }
+.note-card h4 {
+  font-family: 'Zen Maru Gothic', sans-serif;
+  font-size: 0.85rem; font-weight: 700; color: var(--brown); margin-bottom: 8px;
+}
+
+.include-list { list-style: none; display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 0.82rem; }
+
+.course-includes { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 8px; font-size: 0.8rem; }
+.course-label { display: block; color: var(--pink-deep); font-weight: 700; margin-bottom: 6px; }
+.course-includes ul { list-style: none; line-height: 2; }
+
+.tax-note { font-size: 0.72rem; color: var(--text); text-align: right; margin-top: 12px; font-weight: 700; }
+
+/* メニューページ電話バー */
+.menu-contact-bar {
+  background: linear-gradient(135deg, var(--pink-deep), #c05a7a);
+  padding: 24px 20px; text-align: center; color: white;
+}
+.menu-contact-text { font-size: 0.85rem; margin-bottom: 14px; opacity: 0.9; }
+.btn-tel-bar {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: white; color: var(--pink-deep);
+  padding: 14px 32px; border-radius: 50px;
+  font-family: 'Zen Maru Gothic', sans-serif;
+  font-weight: 700; font-size: 1rem; text-decoration: none;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.15); transition: transform 0.2s;
+}
+.btn-tel-bar:hover { transform: translateY(-3px); }
+.tel-bar-icon { font-size: 1.2rem; }
+.tel-bar-num { font-size: 1.1rem; letter-spacing: 0.05em; }
+.menu-contact-phone {
+  display: inline-block;
+  color: white;
+  font-size: 1.15rem;
+  font-weight: 700;
+  text-decoration: none;
+  letter-spacing: 0.04em;
+}
+.menu-contact-phone:hover { text-decoration: underline; }
+
+/* ============================================
+   INFO.HTML スタイル
+============================================ */
+.info-content { max-width: 760px; margin: 0 auto; padding: 30px 16px 80px; }
+
+.contact-hero {
+  background: linear-gradient(135deg, var(--pink-deep), #d4648a);
+  border-radius: 24px; padding: 36px 28px; text-align: center;
+  color: white; margin-bottom: 28px;
+  box-shadow: 0 8px 30px rgba(224,122,151,0.35);
+}
+.contact-badge {
+  background: rgba(255,255,255,0.25); display: inline-block;
+  padding: 6px 20px; border-radius: 20px;
+  font-size: 0.85rem; font-weight: 700; margin-bottom: 16px;
+}
+.contact-tel-link { text-decoration: none; }
+.contact-tel {
+  font-family: 'Caveat', cursive;
+  font-size: clamp(2.2rem, 8vw, 3.5rem); font-weight: 600;
+  display: block; letter-spacing: 0.05em; margin-bottom: 8px;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.2); color: white;
+  transition: opacity 0.2s;
+}
+.contact-tel:hover { opacity: 0.85; }
+.contact-note { font-size: 0.8rem; opacity: 0.85; margin-bottom: 20px; }
+
+.info-section-title {
+  display: flex; align-items: center; gap: 10px;
+  font-family: 'Zen Maru Gothic', sans-serif;
+  font-size: 1.05rem; font-weight: 700; color: var(--brown);
+  margin: 28px 0 14px; padding-bottom: 8px;
+  border-bottom: 2px dashed var(--pink);
+}
+
+.travel-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap: 14px; margin-bottom: 24px; }
+.travel-card {
+  background: white; border-radius: 16px; padding: 20px; text-align: center;
+  box-shadow: 0 4px 16px rgba(244,167,185,0.18); border-top: 4px solid var(--pink);
+  transition: transform 0.3s;
+}
+.travel-card:hover { transform: translateY(-4px); }
+.travel-area { font-size: 0.82rem; color: var(--brown-light); margin-bottom: 6px; font-weight: 500; }
+.travel-price { font-size: 1.4rem; font-weight: 700; color: var(--pink-deep); }
+.travel-price small { font-size: 0.7rem; font-weight: 400; color: #aaa; }
+
+.cancel-table {
+  width: 100%; border-collapse: collapse; background: white;
+  border-radius: 16px; overflow: hidden;
+  box-shadow: 0 4px 16px rgba(244,167,185,0.15);
+  font-size: 0.82rem; margin-bottom: 24px;
+}
+.cancel-table th { background: linear-gradient(135deg, var(--pink), var(--pink-deep)); color: white; padding: 10px 14px; text-align: center; font-size: 0.8rem; }
+.cancel-table td { padding: 10px 14px; border-bottom: 1px solid #fce8ef; text-align: center; }
+.cancel-table tr:last-child td { border-bottom: none; }
+.cancel-table tr:nth-child(even) td { background: #fff8fb; }
+.pct { font-size: 1rem; font-weight: 700; color: var(--pink-deep); }
+.cancel-note { font-size: 0.75rem; color: #000000; margin-top: -14px; margin-bottom: 24px; }
+
+.note-card.orange-note { border-left-color: var(--brown-light); }
+.note-card.orange-note h4 { color: var(--brown-light); }
+
+.map-area { background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 4px 20px rgba(244,167,185,0.2); margin-bottom: 24px; }
+.map-area iframe { width: 100%; height: 280px; border: none; display: block; }
+.map-caption { padding: 14px 16px; font-size: 0.8rem; color: var(--brown-light); display: flex; align-items: center; gap: 8px; }
+
+.shop-info-table {
+  width: 100%; border-collapse: collapse; background: white;
+  border-radius: 16px; overflow: hidden;
+  box-shadow: 0 4px 16px rgba(244,167,185,0.15);
+  font-size: 0.82rem; margin-bottom: 24px;
+}
+.shop-info-table tr td { padding: 12px 16px; border-bottom: 1px solid #fce8ef; vertical-align: top; }
+.shop-info-table tr:last-child td { border-bottom: none; }
+.shop-info-table td:first-child { width: 38%; background: #fff5f8; font-weight: 700; color: var(--brown); white-space: nowrap; }
+
+.owner-profile {
+  display: grid;
+  grid-template-columns: minmax(180px, 260px) 1fr;
+  gap: 24px;
+  align-items: center;
+  background: white;
+  border-radius: 20px;
+  padding: 20px;
+  margin-bottom: 24px;
+  box-shadow: 0 4px 16px rgba(244,167,185,0.18);
+}
+.owner-image {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 16px;
+}
+.owner-copy h3 {
+  font-family: 'Zen Maru Gothic', sans-serif;
+  color: var(--brown);
+  font-size: 1.05rem;
+  margin-bottom: 10px;
+}
+.owner-copy p { color: var(--brown-light); font-size: 0.84rem; line-height: 1.8; }
+
+.owner-message {
+  background: linear-gradient(135deg, #fff8fb, #fde8ef);
+  border: 1px solid var(--pink-light);
+  border-radius: var(--radius);
+  padding: 20px 22px;
+  margin-bottom: 24px;
+  color: var(--text);
+  font-size: 0.84rem;
+  line-height: 1.9;
+}
+.owner-message p + p { margin-top: 8px; }
+
+.location-notes { display: grid; gap: 12px; margin-bottom: 28px; }
+.location-note {
+  background: white;
+  border-left: 4px solid var(--brown-light);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  padding: 16px 18px;
+  box-shadow: 0 2px 10px rgba(244,167,185,0.12);
+}
+.location-note h3 { color: var(--brown); font-size: 0.9rem; margin-bottom: 6px; }
+.location-note p,
+.location-note li { color: var(--brown-light); font-size: 0.8rem; line-height: 1.8; }
+.location-note ul { list-style: none; margin-top: 6px; }
+
+.feature-list {
+  display: grid;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+.info-feature-card {
+  display: grid;
+  grid-template-columns: 46px 1fr;
+  gap: 14px;
+  align-items: start;
+  background: white;
+  border-left: 4px solid var(--pink);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  padding: 16px 18px;
+  box-shadow: 0 2px 10px rgba(244,167,185,0.12);
+}
+.info-feature-number {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--pink-light);
+  color: var(--pink-deep);
+  font-weight: 700;
+  font-size: 0.78rem;
+}
+.info-feature-card h3 { color: var(--brown); font-size: 0.95rem; margin-bottom: 5px; }
+.info-feature-card p { color: var(--brown-light); font-size: 0.8rem; line-height: 1.8; }
+
+.sns-card {
+  background: linear-gradient(135deg, #fceff5, #ffe8ef);
+  border-radius: 20px; padding: 24px; text-align: center;
+  box-shadow: 0 4px 16px rgba(244,167,185,0.2); margin-bottom: 24px;
+}
+.sns-card h3 {
+  font-family: 'Zen Maru Gothic', sans-serif;
+  font-size: 1rem; color: var(--brown); font-weight: 700; margin-bottom: 14px;
+}
+.sns-link {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: white; color: var(--brown); text-decoration: none;
+  padding: 12px 24px; border-radius: 30px; font-weight: 700; font-size: 0.88rem;
+  box-shadow: 0 4px 12px rgba(244,167,185,0.2); transition: transform 0.2s, box-shadow 0.2s;
+}
+.sns-link:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(244,167,185,0.3); }
+
+/* お問い合わせカード（電話のみ） */
+.contact-bottom-card {
+  background: white; border-radius: 20px; padding: 28px 24px;
+  text-align: center; box-shadow: 0 4px 20px rgba(244,167,185,0.18);
+}
+.contact-bottom-lead { font-size: 0.85rem; color: var(--brown-light); margin-bottom: 16px; }
+.contact-bottom-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+.btn-contact-tel {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: linear-gradient(135deg, var(--pink-deep), #d4648a);
+  color: white; padding: 14px 36px; border-radius: 30px;
+  font-family: 'Zen Maru Gothic', sans-serif;
+  font-weight: 700; font-size: 1rem; text-decoration: none;
+  box-shadow: 0 4px 15px rgba(224,122,151,0.35); transition: transform 0.2s;
+  letter-spacing: 0.05em;
+}
+.btn-contact-tel:hover { transform: translateY(-3px); }
+
+/* ============================================
+   RESPONSIVE
+============================================ */
+@media (max-width: 640px) {
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+  .bottom-nav { display: block; }
+  body { padding-bottom: 70px; }
+
+  .hero { min-height: 72vh; }
+  .hero-title { font-size: 2.8rem; }
+
+  .features-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
+  .feature-card { padding: 22px 14px; }
+  .feature-icon { font-size: 2rem; }
+
+  .target-card { padding: 30px 18px; }
+  .price-cards { grid-template-columns: 1fr; }
+
+  .tab-btn { min-width: 88px; font-size: 0.72rem; padding: 12px 5px; }
+  .price-table { display: block; overflow-x: auto; border-radius: var(--radius); }
+  .price-table thead, .price-table tbody { min-width: 620px; }
+  .price-table th, .price-table td { font-size: 0.72rem; padding: 8px 6px; }
+  .care-table tr td { font-size: 0.75rem; }
+  .surcharge-table tr td { font-size: 0.72rem; }
+  .course-includes { grid-template-columns: 1fr; }
+
+  .cta-contacts { flex-direction: column; align-items: center; }
+  .contact-bottom-btns { flex-direction: column; align-items: center; }
+  .travel-grid { grid-template-columns: 1fr 1fr; }
+  .owner-profile { grid-template-columns: 1fr; gap: 16px; }
+  .owner-image { max-width: 280px; margin: 0 auto; }
+  .info-feature-card { grid-template-columns: 38px 1fr; gap: 10px; padding: 14px; }
+
+  /* モバイル：キャラクター吹き出しを小さく */
+  .chara-img--home { width: 72px; height: 72px; }
+  .chara-img--menu, .chara-img--tab, .chara-img--price { width: 60px; height: 60px; }
+  .chara-img--info, .chara-img--info-sm, .chara-img--contact { width: 56px; height: 56px; }
+  .chara-bubble { font-size: 0.76rem; max-width: 200px; padding: 10px 12px; }
+
+  .nav-tel { display: none; }
+}
+
+/* ===== フォーカス可視性（アクセシビリティ） ===== */
+a:focus-visible, button:focus-visible {
+  outline: 3px solid var(--pink-deep);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
