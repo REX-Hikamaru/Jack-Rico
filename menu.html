@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>メニュー・料金 | Jack &amp; Rico</title>
+  <meta name="description" content="Jack & Rico のトリミングメニューと料金表。プチトリミング・シャンプーコース・大型犬対応。">
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Zen+Maru+Gothic:wght@400;500;700&family=Yomogi&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <nav class="navbar" id="navbar">
+    <a href="index.html" class="nav-logo">Jack <span class="amp">&amp;</span> Rico</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html" class="nav-link">ホーム</a></li>
+      <li><a href="menu.html" class="nav-link active">料金表</a></li>
+      <li><a href="info.html" class="nav-link">店舗情報</a></li>
+    </ul>
+  
+    <button class="hamburger" id="hamburger" aria-label="ナビゲーションメニューを開く" aria-expanded="false" aria-controls="mobileMenu">
+      <span class="ham-line"></span><span class="ham-line"></span><span class="ham-line"></span>
+    </button>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <ul>
+      <li><a href="index.html" class="mobile-link">🏠 ホーム</a></li>
+      <li><a href="menu.html" class="mobile-link">🐾 料金表</a></li>
+      <li><a href="info.html" class="mobile-link">📍 店舗情報</a></li>
+    </ul>
+  </div>
+
+
+
+  <div class="tab-bar" id="tabBar" role="tablist" aria-label="料金表タブ">
+    <button class="tab-btn active" role="tab" aria-selected="true" aria-controls="tab-petit" id="btn-petit" onclick="showTab('petit',this)">トリミング料金表</button>
+    <button class="tab-btn" role="tab" aria-selected="false" aria-controls="tab-care" id="btn-care" onclick="showTab('care',this)">ケア・オプション料金表</button>
+    <button class="tab-btn" role="tab" aria-selected="false" aria-controls="tab-large" id="btn-large" onclick="showTab('large',this)">追加料金表</button>
+  </div>
+
+  <div class="menu-content">
+
+    <!-- トリミング料金表 -->
+    <div id="tab-petit" class="tab-panel active" role="tabpanel" aria-labelledby="btn-petit">
+
+      
+      <div class="menu-section-title"><span class="icon" aria-hidden="true">🐶</span> トリミング 料金表</div>
+      <table class="price-table" aria-label="プチトリミング料金表">
+        <thead><tr><th scope="col">犬　種</th><th scope="col">シャンプーコース</th><th scope="col">シャンプーカットコース</th></tr></thead>
+        <tbody>
+          <tr><td>チワワ（ロング・スムース）<br>M.ダックス（スムース）・ミニピン・イタグレ</td><td>4,800円</td><td>5,800円</td></tr>
+          <tr><td>チワワ（3.5kg以上、毛量多・骨格大の子）<br>M.ダックス（ロング）</td><td>3,300円</td><td>6,800円</td></tr>
+          <tr><td>パグ・フレンチブルドッグ</td><td>5,800円</td><td>—</td></tr>
+          <tr><td>コーギー・ビーグル・柴</td><td>6,800円</td><td>—</td></tr>
+          <tr><td>パピヨン・ヨーキー・ポメラニアン・マルチーズ<br>キャバリア・ジャックラッセル・シーズー</td><td>6,800円</td><td>7,800円</td></tr>
+          <tr><td>トイプードル（4kg未満）・ペキニーズ<br>シュナウザー・ウェスティー(28cmまで)</td><td>6,800円</td><td>8,800円</td></tr>
+          <tr><td>トイプードル（4kg以上、体高29cm以上）</td><td>4,300円</td><td>9,800円</td></tr>
+          <tr><td>柴（8kg以上）</td><td>7,800円</td><td>—</td></tr>
+          <tr><td>スピッツ・狆・ビション</td><td>7,800円</td><td>—</td></tr>
+          <tr><td>ボーダーコリー</td><td>8,800円</td><td>—</td></tr>
+          <tr><td>シェルティー・Eコッカー</td><td>8,800円</td><td>10,800円</td></tr>
+          <tr><td>Aコッカー</td><td>10,800円</td><td>11,800円</td></tr>
+          <tr><td>ラブラドール</td><td>9,800円</td><td>—</td></tr>
+          <tr><td>G.レトリバー</td><td>10,800円</td><td>お問い合わせ下さい</td></tr>
+          <tr><td>超大型犬</td><td colspan="2">お問い合わせ下さい</td></tr>
+
+        </tbody>
+      </table>
+      
+          <div class="note-card green-note"><h4>🚗 出張費について</h4><p class="travel-fee-note">・出張トリミングの場合、出張費4,800円（税込）が別途にかかります。<br>出張エリアは名古屋市内となります。<br><br>・定期的に当サロンをご利用のお客様が出張トリミングの対象となります。<br>
+          初めての方はまずはお気軽にご連絡ください。</p></div>
+       <div class="note-card">
+        <h4>📋 各コースに含まれる内容</h4>
+        <div class="course-includes">
+          <div><strong class="course-label">シャンプーコース</strong><ul><li>✅ 爪切り</li><li>✅ 耳掃除</li><li>✅ 肛門腺しぼり</li><li>✅ 足裏バリカン</li></ul></div>
+          <div><strong class="course-label">シャンプーカットコース</strong><ul><li>✅ 爪切り</li><li>✅ 耳掃除</li><li>✅ 肛門腺しぼり</li><li>✅ 肛門周りバリカン</li><li>✅ 足裏バリカン</li><li>✅ 足回りカット</li></ul></div>
+        </div>
+      </div>
+      <div class="note-card green-note">
+        <h4>📝 ご紹介者様割引</h4>
+        ご紹介者様は <strong>500円割引</strong> いたします。
+      </div>
+
+    </div>
+
+    <!-- ケア・オプション -->
+    <div id="tab-care" class="tab-panel" role="tabpanel" aria-labelledby="btn-care">
+      <div class="menu-section-title"><span class="icon" aria-hidden="true">✨</span> オプション・ケア料金表</div>
+      
+      <table class="care-table care-table--options" aria-label="オプション料金表">
+        <tbody>
+          <tr><td class="tbl-header">オプション</td><td class="tbl-header">(税込価格)<br>オプション価格</td></tr>
+          <tr><td>りんご酵素温浴・セラミドコラーゲン保湿</td><td class="price-col">480円</td></tr>
+          <tr><td>薬浴（薬用シャンプー・ご持参は半額）</td><td class="price-col">480円</td></tr>
+          <tr><td>皮膚やせきいシャンプー（ナチュラルシャンプー）</td><td class="price-col">480円</td></tr>
+          <tr><td>オイルクレンジング</td><td class="price-col">480円〜</td></tr>
+          <tr><td>トリートメント</td><td class="price-col">280円</td></tr>
+          <tr><td>薬用ハーブパック</td><td class="price-col">2,800円〜</td></tr>
+        </tbody>
+      </table>
+      <p class="tax-note tax-note--lead">※上記価格は、小型犬料金となります。<br>中型犬（小型犬料金より200円UP）<br>大型犬（小型犬料金より400円UP）</p>
+      <table class="care-table care-table--care" aria-label="プチトリミングケア料金表">
+        <tbody>
+          <tr><td class="tbl-header care-header">ケア料金表（プチトリミング）</td><th class="care-size-header">小型犬</th><th class="care-size-header">中型犬</th></tr>
+          <tr><td>爪切り</td><td class="price-col">480円</td><td class="price-col">680円</td></tr>
+          <tr><td>足裏バリカン</td><td class="price-col">480円</td><td class="price-col">680円</td></tr>
+          <tr><td>お腹バリカン</td><td class="price-col">480円</td><td class="price-col">680円</td></tr>
+          <tr><td>お尻バリカン</td><td class="price-col">480円</td><td class="price-col">680円</td></tr>
+          <tr><td>耳掃除</td><td class="price-col">480円</td><td class="price-col">680円</td></tr>
+          <tr><td>足回りカット</td><td class="price-col">480円</td><td class="price-col">680円</td></tr>
+          <tr><td>しっぽカット</td><td class="price-col">480円</td><td class="price-col">680円</td></tr>
+          <tr><td>四肢飾り毛カット</td><td class="price-col">480円</td><td class="price-col">680円</td></tr>
+          <tr><td>耳洗浄</td><td class="price-col">480円</td><td class="price-col">680円</td></tr>
+          <tr><td>耳毛抜き</td><td class="price-col">480円</td><td class="price-col">680円</td></tr>
+          <tr><td>耳フチカット</td><td class="price-col">480円</td><td class="price-col">680円</td></tr>
+          <tr><td>おひげカット</td><td class="price-col">480円</td><td class="price-col">680円</td></tr>
+          <tr><td>肛門腺しぼり</td><td class="price-col">480円</td><td class="price-col">680円</td></tr>
+          <tr><td>目元カット</td><td class="price-col">480円</td><td class="price-col">680円</td></tr>
+          <tr><td>目の上（目にかかる毛）カット</td><td class="price-col">480円</td><td class="price-col">680円</td></tr>
+          <tr><td>口周りカット</td><td class="price-col">480円</td><td class="price-col">680円</td></tr>
+          <tr><td>顎下カット</td><td class="price-col">480円</td><td class="price-col">680円</td></tr>
+          <tr><td>桃尻カット</td><td class="price-col">480円</td><td class="price-col">1,080円</td></tr>
+
+        </tbody>
+      </table>
+      <div class="note-card note-red"><h4>⚠️ ケア料金表の注意事項</h4>☆咬む・唸る・暴れる・嫌がる場合は、口輪やエリザベスカラーをつけさせていただきます<br>
+上記行為がある場合・・・飼い主様の保定によりより作業がスムーズに行えるようでしたら、
+      別途 <strong>980円〜</strong> かかります。<br>☆頭部や四肢カットはプチトリミング対象外です。</div>
+  
+    </div>
+
+    <!-- 追加料金 -->
+    <div id="tab-large" class="tab-panel" role="tabpanel" aria-labelledby="btn-large">
+      <div class="menu-section-title"><span class="icon" aria-hidden="true">🌸</span> 追加料金・キャンセル料金表</div>
+      <table class="surcharge-table" aria-label="追加料金表">
+        <tbody>
+          <tr><td class="surcharge-header" colspan="2">追加料金（通常より時間を要する場合）</td></tr>
+          <tr><td>毛玉・もつれ処理代（部位・箇所・作業時間によります）</td><td class="surcharge-price">480円～</td></tr>
+          <tr><td>抜け毛（シャンプー前・中・後に行う）処理代</td><td class="surcharge-price">480円～</td></tr>
+          <tr><td>サイズアップ料（体重・体格が大きな子、毛量の多い子）</td><td class="surcharge-price">1,000円〜</td></tr>
+          <tr><td>汚れが多い場合（全体・肛門・口元・目元・嘔吐・足先等）</td><td class="surcharge-price">1箇所 480円〜</td></tr>
+          <tr><td><span class="alert-text">15歳以上</span>（※高齢のため付添いが必要になります。）</td><td class="surcharge-price">880円〜</td></tr>
+          <tr><td>飼い主様付添い料（↓下記項目該当の場合必須）</td><td class="surcharge-price">880円/人</td></tr>
+          <tr><td>認知症</td><td class="surcharge-price">980円〜</td></tr>
+          <tr><td><span class="alert-text">咬む子</span>（エリザベスカラーや口輪が必要な子等）</td><td class="surcharge-price">980円〜</td></tr>
+          <tr><td>通常より時間のかかる子（暴れる・嫌がる等）</td><td class="surcharge-price">980円〜</td></tr>
+          <tr><td>寝たままトリミング</td><td class="surcharge-price">980円〜</td></tr>
+          <tr><td>床上トリミング</td><td class="surcharge-price">980円〜</td></tr>
+          <tr><td>屋外飼いの子</td><td class="surcharge-price">2,800円〜</td></tr>
+          <tr><td>前回のトリミングから2ヶ月以上経過の場合</td>
+          <tr><td class="surcharge-size-row">小型犬</td><td class="surcharge-price">3,300円</td></tr>
+          <tr><td class="surcharge-size-row">中型犬</td><td class="surcharge-price">4,400円</td></tr>
+          <tr><td class="surcharge-size-row">大型犬</td><td class="surcharge-price">5,500円</td></tr>
+          <tr><td class="surcharge-size-row">超大型犬</td><td class="surcharge-price">6,600円</td></tr>
+        </tbody>
+      </table>
+      <p class="tax-note">※表示価格は全て税込価格です。</p>
+      <div class="document-subtitle">キャンセル料金表</div>
+      <table class="cancel-table menu-cancel-table" aria-label="キャンセル料金表">
+        <thead><tr><th scope="col">タイミング</th><th scope="col">キャンセル料金</th></tr></thead>
+        <tbody>
+          <tr><td>当日</td><td><span class="pct">トリミングご予約コース料金の100%</span></td></tr>
+          <tr><td>前日</td><td><span class="pct">80%</span></td></tr>
+          <tr><td>2日前</td><td><span class="pct">60%</span></td></tr>
+          <tr><td>3日前</td><td><span class="pct">40%</span></td></tr>
+        </tbody>
+      </table>
+      <p class="cancel-note menu-cancel-note">※キャンセルされても、2週間以内のお日にちに変更の場合は、かかりません。<br>※キャンセル料金は店頭にてお支払いもしくは、ご予約日を含めて3日以内のお振込みをお願いしております。</p>
+      <div class="document-subtitle">確認事項</div>
+      <section class="agreement-card" aria-label="確認事項・利用規約">
+        <p class="agreement-lead">ご来店の際、お客様に御確認と御記入を頂く、当店のご利用規約兼同意書になります。<br>注意事項と重複致します為、ご一読願います。</p>
+        <p class="agreement-intro">Ｊａｃｋ＆Ｒｉｃｏでは、提供するトリミングサービスの利用規約を以下の通り定めます。<br>みなさまに安心してご利用いただく為、最後までよくお読み頂きご理解いただいた上で、ご署名をお願いしております。</p>
+
+        <div class="agreement-section">
+          <h3>■ 利用規約</h3>
+          <p class="agreement-subheading">● 次のような場合、トリミングサービスをご利用いただけない場合がございます。</p>
+          <ul>
+            <li>１年以内に狂犬病予防接種、混合ワクチン接種を受けていない（証明書をご持参ください）</li>
+            <li>ノミ、ダニが寄生している</li>
+            <li>ヒート中（生理中）、妊娠中、産後３０日以内</li>
+            <li>ワクチン接種から３日以上経過していない</li>
+          </ul>
+        </div>
+
+        <div class="agreement-section">
+          <h3>● トリミングについて</h3>
+          <ul>
+            <li>バリカンをかける事によって、刈った部分の被毛が伸びてこない事があります。</li>
+            <li>毛質・毛量・作業を嫌がる等の理由で仕上がりがお客様のイメージと異なる場合がございます。その場合、代金の返金や値引きは行いません。</li>
+            <li>ご連絡なしでの当日キャンセルの場合、その後のご予約をお断りする事がございます。</li>
+            <li>トリミング当日、わんちゃんの体調不良などによりお断りする事がございます。</li>
+            <li>お客様のわんちゃんによって当店の備品、設備などの破損、他のお客様やスタッフに怪我を負わせた場合、状況に応じて実費で弁償をお願いする事がございます。</li>
+            <li>コース料金のほか、大きさ、毛量、毛玉・もつれ、咬む、暴れる、立たない、落ち着きがない、嫌がる作業が多い場合、プラス料金が発生します。咬む、唸る場合は、口輪やエリザベスカラーを着用させていただきます。</li>
+            <li>認知症、見えない、立てない、１５歳以上の高齢犬、嫌がる作業が多い子等は、付き添いトリミングとなります。サロンで付き添いが難しい場合は、その後のトリミングを出張トリミングに切り替えて頂きます。</li>
+            <li>トリミング終了のご連絡後、お迎えまで１時間を超えた場合、一時お預かりとして３０分毎に５５０円（税込）を頂きますので予めご了承ください。</li>
+          </ul>
+        </div>
+
+        <div class="agreement-section">
+          <h3>● サービスの中断、中止について</h3>
+          <p>トリミング中、わんちゃんの健康状態、精神状態に応じ、当方の判断でトリミングを一時中断または中止する場合がございます。トリミングを完了することなく中止する事になった場合、トリミング料金はそれまでに終了しているサービス内容の料金のみのお支払いになります。</p>
+        </div>
+
+        <div class="agreement-section">
+          <h3>● 緊急時について</h3>
+          <p>お預かり中には万全を期しますが、万一当方の不可抗力による突発事故（天災・不慮の事故・高齢・持病・特異体質）に基づく発病、怪我、死亡、逃走など如何なる事由においても、その保証（損害賠償）あるいは慰謝料等の請求には一切応じかねますので、ご了承ください。</p>
+          <p>お預かり中、わんちゃんには最善の注意を払い大切に取り扱いさせて頂きますが、万が一当方の過失により事故が発生した場合は、第一にお客様にご連絡させて頂き動物病院で処置を取らせて頂きます。連絡が取れない場合や緊急を要する場合は、事後報告になってしまう場合もある事をご了承ください。</p>
+          <p>応急処置のみでも改善されると判断した場合は、動物病院での処置は致しません。この場合の応急処置代金・動物病院での処置代金は当方にて負担させて頂きますが、通院費・慰謝料・賠償金につきましては一切の責任を負いかねますのでご了承ください。</p>
+        </div>
+
+        <div class="agreement-section">
+          <h3>● キャンセル、無断キャンセル、遅刻について</h3>
+          <ul>
+            <li>営業時間外は、メッセージにてお知らせください。</li>
+            <li>キャンセル料につきましては、リーフレット記載通りとさせていただきます。<br>※キャンセルした日より一週間以内に店頭にてお支払いをお願い致します。</li>
+            <li>ご予約時刻より１５分以上経過してからのご来店の場合、コースやお預かり時間をご変更いただく事がございます。<br>※キャンセルさせて頂く場合もございます。</li>
+          </ul>
+        </div>
+
+        <div class="agreement-section">
+          <h3>● その他</h3>
+          <ul>
+            <li>マーキング癖のあるわんちゃんは、マナーベルトまたはマナーパンツの着用をお願い致します。</li>
+            <li>わんちゃんのお写真を当店インスタグラム・ＦａｃｅｂｏｏｋなどのＳＮＳへ掲載ご許可いただけますでしょうか。<br>（　ＹＥＳ　・ＮＯ　）</li>
+          </ul>
+        </div>
+
+        <p class="agreement-signature">※店内で同様の同意書をご記入していただきます</p>
+      </section>
+      </div>
+      </div>
+
+  <!-- お問い合わせ（電話のみ） -->
+  <div class="menu-contact-bar">
+    <p class="menu-contact-text">ご不明な点はお電話にてお問い合わせください</p>
+    <a href="tel:090-6366-0188" class="menu-contact-phone" aria-label="電話でお問い合わせ：090-6366-0188">📞 090-6366-0188</a>
+  </div>
+
+  <footer class="footer" role="contentinfo">
+    <div class="footer-logo">Jack <span class="footer-amp">&amp;</span> Rico</div>
+
+    <p>TEL：090-6366-0188</p>
+    <p class="footer-copy">© 2024 Jack &amp; Rico All rights reserved.</p>
+  </footer>
+
+  <nav class="bottom-nav" aria-label="モバイルナビゲーション">
+    <ul>
+      <li><a href="index.html" class="bnav-link"><span class="bnav-icon" aria-hidden="true">🏠</span><span>ホーム</span></a></li>
+      <li><a href="menu.html" class="bnav-link active"><span class="bnav-icon" aria-hidden="true">🐾</span><span>メニュー</span></a></li>
+      <li><a href="info.html" class="bnav-link"><span class="bnav-icon" aria-hidden="true">📍</span><span>店舗情報</span></a></li>
+      <li><a href="tel:090-6366-0188" class="bnav-link" aria-label="電話をかける"><span class="bnav-icon" aria-hidden="true">📞</span><span>電話</span></a></li>
+    </ul>
+  </nav>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
