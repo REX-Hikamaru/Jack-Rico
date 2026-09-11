@@ -924,6 +924,39 @@ body.modal-open { overflow: hidden; }
 .map-area iframe { width: 100%; height: 280px; border: none; display: block; }
 .map-caption { padding: 14px 16px; font-size: 0.8rem; color: var(--brown-light); display: flex; align-items: center; gap: 8px; }
 
+.store-gallery { margin-bottom: 24px; }
+.store-gallery-grid {
+  display: grid;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+.store-gallery-grid--interior { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.store-gallery-item {
+  display: block;
+  width: 100%;
+  height: 220px;
+  padding: 0;
+  overflow: hidden;
+  border: 3px solid white;
+  border-radius: var(--radius);
+  background: white;
+  box-shadow: 0 4px 16px rgba(244,167,185,0.18);
+  cursor: zoom-in;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.store-gallery-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 22px rgba(224,122,151,0.28);
+}
+.store-gallery-item img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: var(--pink-pale);
+}
+.store-gallery-item--shop { height: 360px; }
+
 .shop-info-table {
   width: 100%; border-collapse: collapse; background: white;
   border-radius: 16px; overflow: hidden;
@@ -1015,6 +1048,44 @@ body.modal-open { overflow: hidden; }
 .info-feature-card h3 { color: var(--brown); font-size: 0.95rem; margin-bottom: 5px; }
 .info-feature-card p { color: var(--brown-light); font-size: 0.8rem; line-height: 1.8; }
 
+/* ===== GALLERY ===== */
+.gallery-section {
+  padding: 80px 0;
+  background: linear-gradient(180deg, var(--pink-pale), var(--cream));
+}
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 180px;
+  gap: 12px;
+}
+.gallery-item {
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  overflow: hidden;
+  border: 3px solid white;
+  border-radius: var(--radius);
+  background: white;
+  box-shadow: 0 4px 16px rgba(139,94,82,0.12);
+  cursor: zoom-in;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.gallery-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 24px rgba(224,122,151,0.28);
+}
+.gallery-item img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: var(--pink-pale);
+}
+.gallery-item--large { grid-column: span 2; grid-row: span 2; }
+.gallery-item--wide { grid-column: span 2; }
+
 .sns-card {
   background: linear-gradient(135deg, #fceff5, #ffe8ef);
   border-radius: 20px; padding: 24px; text-align: center;
@@ -1083,6 +1154,19 @@ body.modal-open { overflow: hidden; }
   .owner-profile { grid-template-columns: 1fr; gap: 16px; }
   .owner-image { max-width: 280px; margin: 0 auto; }
   .info-feature-card { grid-template-columns: 38px 1fr; gap: 10px; padding: 14px; }
+  .store-gallery-grid--interior { gap: 8px; }
+  .store-gallery-item { height: 150px; border-width: 2px; border-radius: 12px; }
+  .store-gallery-item--shop { height: 230px; }
+
+  .gallery-section { padding: 64px 0; }
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 132px;
+    gap: 8px;
+  }
+  .gallery-item { border-width: 2px; border-radius: 12px; }
+  .gallery-item--large { grid-column: span 2; grid-row: span 2; }
+  .gallery-item--wide { grid-column: span 2; }
 
   /* モバイル：キャラクター吹き出しを小さく */
   .chara-img--home { width: 72px; height: 72px; }
