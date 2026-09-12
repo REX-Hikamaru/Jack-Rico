@@ -139,6 +139,17 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
   });
 });
 
+// 電話発信前の確認
+document.addEventListener('click', event => {
+  const phoneLink = event.target.closest('a[href^="tel:"]');
+  if (!phoneLink) return;
+
+  const confirmed = window.confirm(
+    '電話をかける前にご確認ください。\nいたずら電話はしないでください。\nこの番号に電話をかけますか？'
+  );
+  if (!confirmed) event.preventDefault();
+});
+
 // ボトムナビ：現在ページをアクティブに
 (function () {
   try {
