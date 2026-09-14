@@ -491,7 +491,12 @@ body {
   letter-spacing: 0.04em;
 }
 .cta-phone:hover { text-decoration: underline; }
-
+.phone-note {
+  font-size: 0.76rem;
+  line-height: 1.5;
+  margin: 8px 0 0;
+}
+.phone-note--light { color: rgba(255,255,255,0.82); }
 /* ===== FOOTER ===== */
 .footer {
   background: var(--brown); color: rgba(255,255,255,0.85);
