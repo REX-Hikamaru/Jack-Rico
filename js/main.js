@@ -145,7 +145,7 @@ document.addEventListener('click', event => {
   if (!phoneLink) return;
 
   const confirmed = window.confirm(
-    '電話をかける前にご確認ください。\nいたずら電話はしないでください。\nこの番号に電話をかけますか？'
+    '電話をかける前にご確認ください。\n※営業電話はお断りしております。\nこの番号に電話をかけますか？'
   );
   if (!confirmed) event.preventDefault();
 });
