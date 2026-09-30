@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>お問い合わせ・よくある質問 | Jack &amp; Rico</title>
+	<link rel="icon" type="image/png" href="favicon.png" sizes="16x16">
+	<meta name="description" content="Jack & Ricoへのお問い合わせと、よくある質問をご案内します。">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="option.css">
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body class="option-page">
+
+	<nav class="navbar" id="navbar">
+		<a href="index.html" class="nav-logo">Jack <span class="amp">&amp;</span> Rico</a>
+		<ul class="nav-links">
+			<li><a href="index.html" class="nav-link">ホーム</a></li>
+			<li><a href="menu.html" class="nav-link">料金表</a></li>
+			<li><a href="info.html" class="nav-link">店舗情報</a></li>
+			<li><a href="trimming.html" class="nav-link">付添いトリミングについて</a></li>
+			<li><a href="option.html" class="nav-link active">お問い合わせ・FAQ</a></li>
+		</ul>
+
+		<button class="hamburger" id="hamburger" type="button" aria-label="ナビゲーションメニューを開く" aria-expanded="false" aria-controls="mobileMenu">
+			<span class="ham-line"></span>
+			<span class="ham-line"></span>
+			<span class="ham-line"></span>
+		</button>
+	</nav>
+
+	<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+		<ul>
+			<li><a href="index.html" class="mobile-link">🏠 ホーム</a></li>
+			<li><a href="menu.html" class="mobile-link">🐾 料金表</a></li>
+			<li><a href="info.html" class="mobile-link">📍 店舗情報</a></li>
+			<li><a href="trimming.html" class="mobile-link">付添いトリミングについて</a></li>
+			<li><a href="option.html" class="mobile-link active">💌 お問い合わせ・FAQ</a></li>
+		</ul>
+	</div>
+
+	<header class="page-header">
+		<h1>お問い合わせ・よくある質問</h1>
+		<p>ご予約前の疑問や気になることをご案内します</p>
+	</header>
+
+	<main class="option-content">
+	
+	<section class="faq-section" aria-labelledby="faq-heading">
+			<div class="section-heading">
+				<span class="option-eyebrow">FAQ</span>
+				<h2 id="faq-heading">よくある質問</h2>
+				<p>質問をタップすると回答をご覧いただけます。</p>
+			</div>
+
+			<div class="faq-list">
+				<details class="faq-item" open>
+					<summary>爪切りだけしてもらえるのでしょうか？</summary>
+					<div class="faq-answer"><p>爪切りだけでもOKです。<br>
+                        部分ケアご希望の場合は、
+ケア料金表（プチトリミング）のメニュー表をご覧ください！。</p></div>
+				</details>
+				<details class="faq-item">
+					<summary>私（＝飼い主様）がそばにいるだけで安心すると思うのですが、トリミング中に愛犬のそばで見学していても大丈夫ですか？</summary>
+					<div class="faq-answer"><p>大丈夫です。<br>付添料　お1人様　880円（税込）がかかります。</p></div>
+				</details>
+				<details class="faq-item">
+					<summary>愛犬の病気の為、狂犬病ワクチンや混合ワクチンの接種ができませんが、トリミングして頂けますか？</summary>
+					<div class="faq-answer"><p>その場合は出張致しますので出張トリミングをご利用下さい。</p></div>
+				</details>
+				<details class="faq-item">
+					<summary>定休日は何曜日ですか？</summary>
+					<div class="faq-answer"><p>現在は不定休です。</p></div>
+				</details>
+				<details class="faq-item">
+					<summary>最終の予約時間は何時ですか？</summary>
+					<div class="faq-answer"><p>カットのコースの場合は、16時までになりますが、シャンプーコースであれば、17時頃でも可能です。</p></div>
+				</details>
+                	<details class="faq-item">
+					<summary>クレジットカードは使えますか？</summary>
+					<div class="faq-answer"><p>現金のみのお取扱いとなります。</p></div>
+				</details>
+			</div>
+		</section>
+
+		<section class="contact-form-section" aria-labelledby="form-heading">
+			<div class="section-heading">
+				<span class="option-eyebrow">MESSAGE</span>
+				<h2 id="form-heading">お問い合わせフォーム</h2>
+				<p>必要事項をご入力のうえ、送信してください。</p>
+			</div>
+			<form class="contact-form" id="contactForm" action="https://formspree.io/f/mljdvgae" method="POST">
+				<input type="hidden" name="_subject" value="Jack &amp; Ricoへのお問い合わせ">
+				<div class="form-field">
+					<label for="contactName">お名前<span aria-hidden="true">＊</span></label>
+					<input id="contactName" name="name" type="text" autocomplete="name" required>
+				</div>
+				<div class="form-field">
+					<label for="contactEmail">メールアドレス<span aria-hidden="true">＊</span></label>
+					<input id="contactEmail" name="_replyto" type="email" autocomplete="email" required>
+				</div>
+				<div class="form-field">
+					<label for="contactMessage">お問い合わせ内容<span aria-hidden="true">＊</span></label>
+					<textarea id="contactMessage" name="message" rows="6" required></textarea>
+				</div>
+				<div class="form-honeypot" aria-hidden="true">
+					<label for="contactCompany">会社名</label>
+					<input id="contactCompany" name="company" type="text" tabindex="-1" autocomplete="off">
+				</div>
+				<button class="btn btn-primary form-submit" type="submit">✉️ 送信する</button>
+				<p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+			</form>
+		</section>
+
+	</main>
+
+
+
+	<footer class="footer">
+		<div class="footer-logo">Jack <span class="footer-amp">&amp;</span> Rico</div>
+		<p>TEL：090-6366-0188</p>
+		<p class="footer-phone-note">※営業電話はお断りしております</p>
+		<p class="footer-copy">© 2024 Jack &amp; Rico All rights reserved.</p>
+	</footer>
+
+	<nav class="bottom-nav" aria-label="モバイルナビゲーション">
+		<ul>
+			<li><a href="index.html" class="bnav-link"><span class="bnav-icon">🏠</span><span>ホーム</span></a></li>
+			<li><a href="menu.html" class="bnav-link"><span class="bnav-icon">🐾</span><span>メニュー</span></a></li>
+			<li><a href="info.html" class="bnav-link"><span class="bnav-icon">📍</span><span>店舗情報</span></a></li>
+			<li><a href="tel:090-6366-0188" class="bnav-link"><span class="bnav-icon">📞</span><span>電話</span></a></li>
+		</ul>
+	</nav>
+
+	<script src="js/main.js"></script>
+	<script src="option.js"></script>
+</body>
+</html>
