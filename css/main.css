@@ -534,7 +534,7 @@ body {
 }
 .gift-product {
   display: grid;
-  grid-template-columns: minmax(0, 300px) minmax(0, 1fr);
+grid-template-columns: minmax(0, 1fr);
   align-items: center;
   gap: clamp(24px, 6vw, 56px);
   width: min(100%, 760px);
@@ -547,7 +547,8 @@ body {
 }
 .gift-product-image {
   display: block;
-  width: 100%;
+  width: min(100%, 360px);
+  margin: 0 auto;
   aspect-ratio: 3 / 4;
   object-fit: cover;
   border: 8px solid white;
