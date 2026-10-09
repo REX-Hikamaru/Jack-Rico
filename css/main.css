@@ -527,6 +527,40 @@ body {
 }
 .bnav-link:hover, .bnav-link.active { color: var(--pink-deep); }
 .bnav-icon { font-size: 1.4rem; }
+/* ===== NEW CUSTOMER GIFT ===== */
+.gift-section {
+  padding: 56px 0;
+  background: linear-gradient(180deg, white, var(--pink-pale));
+}
+.gift-product {
+  display: grid;
+  grid-template-columns: minmax(0, 300px) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(24px, 6vw, 56px);
+  width: min(100%, 760px);
+  margin: 0 auto;
+  padding: 24px;
+  background: white;
+  border: 1px solid var(--pink-light);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+.gift-product-image {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border: 8px solid white;
+  box-shadow: 0 8px 22px rgba(139,94,82,0.18);
+  transform: rotate(-2deg);
+}
+.gift-product-text {
+  color: var(--brown);
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.9;
+  text-align: center;
+}
 
 /* ============================================
    PAGE HEADER（menu・info共通）
