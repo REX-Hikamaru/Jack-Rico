@@ -1431,7 +1431,10 @@ a:focus-visible, button:focus-visible {
   }
 }
 
-
+@media (min-width: 641px) and (max-width: 1080px) {
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+}
   .trimming-images img {
     aspect-ratio: auto;
   }
