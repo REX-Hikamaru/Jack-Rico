@@ -1372,6 +1372,66 @@ a:focus-visible, button:focus-visible {
     gap: 16px;
   }
 
+
+   
+.travel-detail-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  align-items: start;
+  gap: 20px;
+}
+
+.travel-fee-table {
+  margin-bottom: 0;
+}
+
+.travel-prep h3,
+.travel-eligibility h2 {
+  font-family: 'Zen Maru Gothic', sans-serif;
+  font-size: 0.95rem;
+  color: var(--brown);
+  margin-bottom: 10px;
+}
+
+.travel-prep ol,
+.travel-notes ul {
+  padding-left: 1.4em;
+}
+
+.travel-prep li,
+.travel-notes li {
+  margin-bottom: 8px;
+}
+
+.travel-prep li:last-child,
+.travel-notes li:last-child {
+  margin-bottom: 0;
+}
+
+.travel-prep li span {
+  font-size: 0.75rem;
+}
+
+.travel-cancel-table {
+  margin-bottom: 0;
+}
+
+.travel-cancel-table strong {
+  color: var(--pink-deep);
+}
+
+.travel-notes .note-card {
+  margin-bottom: 0;
+}
+
+@media (max-width: 700px) {
+  .travel-detail-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+}
+
+
   .trimming-images img {
     aspect-ratio: auto;
   }
